@@ -676,7 +676,7 @@ for cycle in cycles:
     discharging_func_dict_real['cycle_%i'%cycle] = [time_interval, func_par]
 
 
-# Two dictionaries storing functionalized (piecewise functions) parameters, for estimation.¶
+# Two dictionaries storing functionalized (piecewise functions) parameters, for estimation.
 
 forming_func_dict = {}
 
@@ -733,7 +733,7 @@ for cycle in cycles:
     func_par = []
     
     k = -3
-    b = k*t_0 + back_0
+    b = -k*t_0 + back_0
     func_par=[k, b]
     
     forming_func_dict_pre['cycle_%i'%cycle] = func_par
@@ -749,7 +749,7 @@ for cycle in cycles:
     func_par = []
     
     k = -3
-    b = k*t_0 + front_0
+    b = -k*t_0 + front_0
     func_par=[k, b]
     
     discharging_func_dict_pre['cycle_%i'%cycle] = func_par
@@ -865,7 +865,7 @@ for cycle in cycles:
         temp_i = temp_l[max(0, temp_ind - 1)]
 
         back_pre = min(0, 225 - discharging_data_collection_real.loc[i, 'back_pre'])
-            
+        back_pre = 225 - discharging_data_collection_real.loc[i, 'back_pre']
         front_pre = 225 - discharging_data_collection_real.loc[i, 'Predicted']
         discharging_data_collection_real.loc[i, 'queue_length_pre'] = max(0, back_pre - front_pre)
     
